@@ -10,6 +10,9 @@ const token = createAsyncSlice({
     }
   },
   reducers: {
+    removeToken(state) {
+      state.data = null
+    },
     fetchSucess: {
       reducer(state, action) {
         state.loading = false;
@@ -42,6 +45,11 @@ const token = createAsyncSlice({
 
 const user = createAsyncSlice({
   name: 'user',
+  reducers: {
+    removeUser(state) {
+      state.data = null
+    },
+  },
   fetchConfig: (token) => ({
     url: 'https://dogsapi.origamid.dev/json/api/user',
     options: {
@@ -56,6 +64,8 @@ const user = createAsyncSlice({
 
 export const fetchToken = token.asyncAction;
 export const fetchUser = user.asyncAction;
+export const { removeToken } = token.actions;
+export const { removeUser } = user.actions;
 
 const reducer = combineReducers({ user: user.reducer, token: token.reducer })
 
@@ -75,3 +85,9 @@ export const autoLogin = () => async (dispatch, getState) => {
   const { token } = state.login.token.data;
   if (token) await dispatch(fetchUser(token));
 };
+
+export const userLogout = () => (dispatch) => {
+  dispatch(removeUser());
+  dispatch(removeToken());
+  window.localStorage.removeItem('token');
+}
