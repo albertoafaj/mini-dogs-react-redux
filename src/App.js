@@ -1,7 +1,9 @@
 import { useDispatch } from "react-redux";
 import React from "react";
 import { autoLogin } from "./store/login";
-import Login from "./Components/Login";
+import Header from "./Components/Header";
+import Content from "./Components/Content";
+import './App.css'
 
 function App() {
 
@@ -14,7 +16,8 @@ function App() {
 
   return (
     <div className="App container">
-      <Login></Login>
+      <Header />
+      <Content />
     </div>
   );
 }

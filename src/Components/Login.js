@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { loginin } from '../store/login';
+import styles from './Login.module.css';
 
 const Login = () => {
   const { login } = useSelector(state => state);
@@ -15,15 +16,15 @@ const Login = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label style={{ display: "block", marginTop: "24px" }} htmlFor="username">
+      <label className={styles.label} htmlFor="username">
         Usuário
       </label>
-      <input id="username" type="text" value={username} onChange={({ target }) => setUsername(target.value)} />
-      <label style={{ display: "block", marginTop: "24px" }} htmlFor="password">
+      <input id="username" className={styles.input} type="text" value={username} onChange={({ target }) => setUsername(target.value)} />
+      <label className={styles.label} htmlFor="password">
         Senha
       </label>
-      <input id="password" type="text" value={password} onChange={({ target }) => setPassword(target.value)} />
-      <button>Enviar</button>
+      <input id="password" autoComplete="on" className={styles.input} type="password" value={password} onChange={({ target }) => setPassword(target.value)} />
+      <button className={styles.button}>Enviar</button>
       {<span>User: {login.user.data?.email}</span>}
     </form>
   )
