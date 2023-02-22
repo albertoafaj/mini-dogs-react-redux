@@ -15,7 +15,7 @@ const Login = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className='anime' onSubmit={handleSubmit}>
       <label className={styles.label} htmlFor="username">
         Usuário
       </label>
@@ -25,7 +25,6 @@ const Login = () => {
       </label>
       <input id="password" autoComplete="on" className={styles.input} type="password" value={password} onChange={({ target }) => setPassword(target.value)} />
       <button className={styles.button}>Enviar</button>
-      {<span>User: {login.user.data?.email}</span>}
     </form>
   )
 }
