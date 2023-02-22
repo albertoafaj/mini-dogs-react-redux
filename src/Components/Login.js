@@ -1,10 +1,10 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, /* useSelector */ } from 'react-redux';
 import { loginin } from '../store/login';
 import styles from './Login.module.css';
 
 const Login = () => {
-  const { login } = useSelector(state => state);
+  // const { login } = useSelector(state => state);
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
   const dispatch = useDispatch();

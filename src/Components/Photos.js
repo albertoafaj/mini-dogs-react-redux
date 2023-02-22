@@ -8,7 +8,7 @@ const Photos = () => {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    dispatch(loadNewPhotos(1));
+    dispatch(loadNewPhotos());
   }, [dispatch]);
   return (
     <section>

@@ -6,6 +6,7 @@ const photos = createAsyncSlice({
     list: [],
     pages: 0,
     infinite: true,
+    data: null,
   },
   reducers: {
     addPhotos(state, action) {
